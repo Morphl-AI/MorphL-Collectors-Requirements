@@ -135,7 +135,23 @@ The last part includes creating API credentials that can be used to authenticate
 
 Click the button to the right of the logo. A window will open and you can press the "+" button to create a new project.
 
-From the **Dashboard** section, click the **+ENABLE APIS AND SERVICES** button. Search for *Google Analytics Reporting API* and enable it. At this point, we have enable the API, but we also need to create credentials so we can access it.
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-create-project.jpg" />
+</div>
+
+From the **Dashboard** section, click the **+ENABLE APIS AND SERVICES** button. 
+
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-enable-reporting-api-1.jpg" />
+</div>
+
+Search for *Google Analytics Reporting API* and enable it.
+
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-enable-reporting-api-2.jpg" />
+</div>
+
+At this point, we have enable the API, but we also need to create credentials so we can access it.
 
 ### b) Create API credentials
 
@@ -143,8 +159,16 @@ Going back to the main page of the Google Developers console, go to the **Creden
 
 Check the **Furnish a new private key** checkbox and choose the **JSON** format. After saving the form, a JSON file with the API credentials will be downloaded. 
 
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-create-service-account.jpg" />
+</div>
+
 ### c) Allow Access to Google Analytics Data
 
 Now the Google project and API credentials are created, but we need one more step to allow read access for the service account to Google Analytics. 
 
 From Google Analytics, go to the **Admin** section. From the **Account** section, select **User Management**. Use the same email address that was added in the previous step (**Service account ID**). Uncheck **Notify new users by email**, uncheck **Edit** from the **Permissions** section below and save the new user.
+
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-ga-add-service-id.jpg" />
+</div>
