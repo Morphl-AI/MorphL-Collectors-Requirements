@@ -109,10 +109,6 @@ In the **More Settings > Custom Dimensions** section, set index **2** with your 
 
 --> screenshot(s)
 
-Creating API credentials
-
-The last part includes creating API credentials that we can use to authenticate to the API and access the data. This is done from the Google Developer Console. I have detailed the steps below, with attached screenshots.
-
 ## Step 4 - Creating Google Analytics Reporting API credentials
 
 The last part includes creating API credentials that can be used to authenticate to the Google Analytics Reporting API and access the data. This is done from the [Google Developer Console](https://console.developers.google.com). 
