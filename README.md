@@ -151,7 +151,7 @@ Search for *Google Analytics Reporting API* and enable it.
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-enable-reporting-api-2.jpg" />
 </div>
 
-At this point, we have enable the API, but we also need to create credentials so we can access it.
+At this point, we have enabled the API, but we also need to create credentials so we can access the data.
 
 ### b) Create API credentials
 
