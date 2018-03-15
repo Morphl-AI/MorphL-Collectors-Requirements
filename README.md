@@ -123,7 +123,9 @@ In the **More Settings > Fields to set** section, set **cookieDomain** to *auto*
 
 In the **More Settings > Custom Dimensions** section, set index **2** with your **Random Session ID** custom variable and index **3** with your **Hit Timestamp Local Time With Offset** custom variable.
 
---> screenshot(s)
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-tag.jpg" />
+</div>
 
 ## Step 4 - Creating Google Analytics Reporting API credentials
 
