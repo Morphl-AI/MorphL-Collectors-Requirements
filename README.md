@@ -67,7 +67,7 @@ function() {
 This will create a random session ID.
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-session-id.png" />
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-session-id-1.png" />
 </div>
 
 ### c) Hit Timestamp
