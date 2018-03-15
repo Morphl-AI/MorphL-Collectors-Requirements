@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/logo.png" style="width:300px; height: auto;" />
+</div>
+
 ## MorphL - Google Analytics Tracking Settings
 
 Please see below the steps required for setting up client ID tracking in Google Analytics & Google Tag Manager and creating API credentials for the Google Analytics Reporting API (v4).
@@ -18,7 +22,10 @@ From the Google Analytics admin panel, go to the **Admin** section. In the **Pro
 - **SessionID** with the **Session** scope
 - **HitTimestamp** with the **Hit** scope
 
--> insert screenshot
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step2-ga-custom-dimensions.jpg" />
+</div>
+
 
 ## Step 3 - Setting up tracking from Google Tag Manager
 
@@ -40,7 +47,10 @@ function() {
 }
 ```
 
----> screenshot
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-client-id.jpg" />
+</div>
+
 
 ### b) Session ID
 
@@ -56,7 +66,9 @@ function() {
 
 This will create a random session ID.
 
----> screenshot
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-session-id.png" />
+</div>
 
 ### c) Hit Timestamp
 
@@ -87,7 +99,9 @@ function() {
 }
 ```
 
----> screenshot
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-hit-timestamp.png" />
+</div>
 
 ### d) Google Analytics Custom Variable
 
@@ -95,7 +109,9 @@ From the **Variables** section, go to the **User-Defined Variables** section and
 
 Set the **Tracking ID** value as your view ID from Google Analytics (should be something like *UI-xxxxx-01*) and set the **Cookie Domain** to *auto*.
 
--> screenshot
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-settings.png" />
+</div>
 
 ### e) Google Analytics Tag
 
