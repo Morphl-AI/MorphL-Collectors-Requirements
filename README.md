@@ -119,7 +119,7 @@ It's time to put everything together. From the **Tags** section, create a new **
 
 Set the **Google Analytics Settings** to your custom **GASettings** variable and check the **Enable overriding settings in this tag** checkbox.
 
-In the **More Settings > Fields to set** section, set **cookieDomain** to *auto* and add a **customTask** field with the value of your **Set Client ID in Dimension 1** custom variable.
+In the **More Settings > Fields to Set** section, set **cookieDomain** to *auto* and add a **customTask** field with the value of your **Set Client ID in Dimension 1** custom variable.
 
 In the **More Settings > Custom Dimensions** section, set index **2** with your **Random Session ID** custom variable and index **3** with your **Hit Timestamp Local Time With Offset** custom variable.
 
@@ -131,7 +131,7 @@ In the **More Settings > Custom Dimensions** section, set index **2** with your 
 
 The last part includes creating API credentials that can be used to authenticate to the Google Analytics Reporting API and access the data. This is done from the [Google Developer Console](https://console.developers.google.com). 
 
-### a) Set Up Google Project
+### a) Create Google Project
 
 Click the button to the right of the logo. A window will open and you can press the "+" button to create a new project.
 
