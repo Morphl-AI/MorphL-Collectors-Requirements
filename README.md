@@ -27,11 +27,13 @@ From the Google Analytics admin panel, go to the **Admin** section. In the **Pro
 </div>
 
 
-## Step 3 - Setting up tracking from Google Tag Manager
+## Step 3 - Setting up tracking 
+
+### 3.1 from Google Tag Manager
 
 Go to the GTM admin panel and follow the steps below. The indications below are derived from [this tutorial](https://www.simoahava.com/analytics/improve-data-collection-with-four-custom-dimensions/#3-session-id) where you can find a detailed explanation about the client ID, session ID and hit timestamp.
 
-### a) Client ID
+#### a) Client ID
 
 From the **Variables** section, go to the **User-Defined Variables** section and click the **New** button. Add the name "*Set Client ID in Dimension 1*" and choose the **Custom JavaScript** variable type.
 
@@ -52,7 +54,7 @@ function() {
 </div>
 
 
-### b) Session ID
+#### b) Session ID
 
 From the **Variables** section, go to the **User-Defined Variables** section and click the **New** button. Add the name "*Random Session ID*" and choose the **Custom JavaScript** variable type.
 
@@ -70,7 +72,7 @@ This will create a random session ID.
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-session-id-1.png" />
 </div>
 
-### c) Hit Timestamp
+#### c) Hit Timestamp
 
 From the **Variables** section, go to the **User-Defined Variables** section and click the **New** button. Add the name "*Hit Timestamp Local Time With Offset*" and choose the **Custom JavaScript** variable type.
 
@@ -103,7 +105,7 @@ function() {
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-hit-timestamp.png" />
 </div>
 
-### d) Google Analytics Custom Variable
+#### d) Google Analytics Custom Variable
 
 From the **Variables** section, go to the **User-Defined Variables** section and click the **New** button. Add the name **GASettings** and choose the **Google Analytics Settings** variable type.
 
@@ -113,7 +115,7 @@ Set the **Tracking ID** value as your view ID from Google Analytics (should be s
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-settings.png" />
 </div>
 
-### e) Google Analytics Tag
+#### e) Google Analytics Tag
 
 It's time to put everything together. From the **Tags** section, create a new **Universal Analytics** tag or modify your existing **Universal Analytics** tag (you must have a single tag of this type).
 
@@ -123,9 +125,69 @@ In the **More Settings > Fields to Set** section, set **cookieDomain** to *auto*
 
 In the **More Settings > Custom Dimensions** section, set index **2** with your **Random Session ID** custom variable and index **3** with your **Hit Timestamp Local Time With Offset** custom variable.
 
+Set the **Trigger** field to "*All Pages*".
+
 <div align="center">
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-tag.jpg" />
 </div>
+
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-trigger.png" />
+</div>
+
+### 3.2 from analytics.js
+
+Go to the Google Analytics admin panel, go to the Admin from the menu and follow the steps below.
+
+#### a) Client ID
+
+From the **Custom Definitions** section, go to the **Custom Dimensions** section and click the **+New Custom Dimension** button. Add the name "*dimension1*" and choose the **User** scope.
+
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-js-client-id.png" />
+</div>
+
+#### b) Session ID
+
+From the **Custom Definitions** section, go to the **Custom Dimensions** section and click the **+New Custom Dimension** button. Add the name "*dimension2*" and choose the **Session** scope.
+
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-js-session-id.png" />
+</div>
+
+#### c) Hit Timestamp
+
+From the **Custom Definitions** section, go to the **Custom Dimensions** section and click the **+New Custom Dimension** button. Add the name "*dimension3*" and choose the **Hit** scope.
+
+
+<div align="center">
+    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-js-timestamp.png" />
+</div>
+
+#### d) Google Analytics Tag
+
+Copy the following script and replace the view id (should be something like *UI-xxxxx-01*) to the one corresponding to your website. It should be placed right before the closing `<body>` tag in the page:
+
+```JavaScript
+(function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date();
+  a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-XXXXXXXX-Y', 'auto'); // replace UA-XXXXXXXX-Y with your view id
+ga(function (tracker) {
+  ga('set', 'dimension1', 'GA' + String(tracker.get('clientId')));
+  ga('set', 'dimension2', new Date().getTime() + '.' + Math.random().toString(36).substring(5));
+  ga('set', 'dimension3', new Date().getTime());
+});
+ga('send', 'pageview');
+```
 
 ## Step 4 - Creating Google Analytics Reporting API credentials
 
