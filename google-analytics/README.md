@@ -68,7 +68,7 @@ ga(function (tracker) {
 ga('send', 'pageview');
 ```
 
-## Step 3 - Creating Google Analytics Reporting API credentials
+## Step 2 - Creating Google Analytics Reporting API credentials
 
 The last part includes creating API credentials that can be used to authenticate to the Google Analytics Reporting API and access the data. This is done from the [Google Developer Console](https://console.developers.google.com). 
 
