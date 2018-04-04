@@ -18,11 +18,6 @@ From the Google Analytics admin panel, go to the **Admin** section. In the **Pro
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step2-ga-custom-dimensions.jpg" />
 </div>
 
-
-## Step 2 - Setting up tracking 
-
-Go to the Google Analytics admin panel, go to the Admin from the menu and follow the steps below.
-
 #### a) Client ID
 
 From the **Custom Definitions** section, go to the **Custom Dimensions** section and click the **+New Custom Dimension** button. Add the name "*dimension1*" and choose the **User** scope.
