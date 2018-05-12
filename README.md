@@ -1,5 +1,5 @@
 
-## MorphL - Tracking Settings
+## MorphL - Collectors (Tracking Settings)
 
 These are the steps required for setting up client ID tracking in [Google Analytics](https://github.com/Morphl-Project/MorphL-Tracking-Settings/tree/master/google-analytics) & [Google Tag Manager](https://github.com/Morphl-Project/MorphL-Tracking-Settings/tree/master/google-tag-manager).
 
