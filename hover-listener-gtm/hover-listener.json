@@ -1,0 +1,125 @@
+{
+    "exportFormatVersion": 1.3,
+    "exportTime": "2016-08-01 20:06:23",
+    "containerVersion": {
+        "accountId": "<Your accountId>",
+        "containerId": "<Your containerId>",
+        "containerVersionId": "0",
+        "deleted": false,
+        "container": {
+            "accountId": "<Your accountId>",
+            "containerId": "<Your containerId>",
+            "name": "Hover Tracking Listener",
+            "publicId": "<Your publicId>",
+            "timeZoneCountryId": "US",
+            "timeZoneId": "America/Los_Angeles",
+            "notes": "",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1470081966260",
+            "enabledBuiltInVariable": [
+                "DEBUG_MODE"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "<Your accountId>",
+                "containerId": "<Your containerId>",
+                "tagId": "2",
+                "name": "CU - Hover Listener - MorphL Plugin",
+                "type": "html",
+                "liveOnly": false,
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script id=\"gtm-hover-listener\">\n  (function(document, window) {\n\n    var qs = '{{Constant - Hover Listener CSS Selectors}}'.split(',');\n    var addEvent = {{fn.addEvent}};\n    var removeEvent = {{fn.removeEvent}};\n    var i;\n\n    for (i = 0; i < qs.length; i++) {\n\n      var els;\n\n      try {\n\n        els = document.querySelectorAll(qs[i]);\n\n      } catch(e) { \n\n        // If we're in Debug Mode, warn the tester\n        if ({{Debug Mode}}) {\n\n          throw 'DOMException: GTM Hover Listener - Invalid Query Selector in variable Constant - Hover Listener CSS Selectors; ' + e.message;\n\n        }\n\n      }\n      var k;\n\n      for (k = 0; k < els.length; k++) {\n\n        var el = els[k];\n        addEvent(el, 'mouseenter', bind_);\n\n      }\n\n    }\n\n    function bind_(evt) {\n\n      var el = evt.target;\n\n      // Fire our push as long as they don't leave in less than half a second\n      el.__htimer = setTimeout(function() {\n\n        removeEvent(el, 'mouseLeave', unbind_);\n\n        dataLayer.push({\n          event: \"hover\",\n          attributes: {\n            element: el\n          }\n        });\n\n      }, 500);\n\n      addEvent(el, 'mouseleave', unbind_);\n\n    }\n\n    // Unbind our push in case they leave\n    function unbind_(evt) {\n\n      var el = evt.target;\n\n      clearTimeout(el.__htimer);\n      el.__htimer = null;\n\n      removeEvent(el, 'mouseleave', unbind_);\n\n    }\n\n  })(document, window);\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1470081802482",
+                "firingTriggerId": [
+                    "5"
+                ],
+                "parentFolderId": "6",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
+        ],
+        "fingerprint": "0",
+        "trigger": [
+            {
+                "accountId": "<Your accountId>",
+                "containerId": "<Your containerId>",
+                "triggerId": "5",
+                "name": "DOM Ready",
+                "type": "DOM_READY",
+                "fingerprint": "1462241541918",
+                "parentFolderId": "6"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "<Your accountId>",
+                "containerId": "<Your containerId>",
+                "variableId": "4",
+                "name": "Constant - Hover Listener CSS Selectors",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "CSS SELECTORS HERE"
+                    }
+                ],
+                "fingerprint": "1462241541918",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "<Your accountId>",
+                "containerId": "<Your containerId>",
+                "variableId": "5",
+                "name": "fn.addEvent",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "// Add Event Listener Polyfill\nfunction() {\n\n  return function(el, eventName, fn) {\n\n    if (el.addEventListener) {\n\n      el.addEventListener(eventName, fn);\n\n    } else if (el.attachEvent) {\n\n      el.attachEvent('on' + eventName, function(evt) {\n\n        polyfillHandler(el, eventName, fn);\n\n      });\n\n    } else if (typeof el['on' + eventName] === 'undefined' || el['on' + eventName] === null) {\n\n      el['on' + eventName] = function(evt) {\n\n        polyfillHandler(el, eventName, fn);\n\n      };\n\n    }\n\n  };\n\n  function polyfillHandler(el, evt, fn) {\n\n    // Polyfill for non-standard target\n    evt.target = evt.target || evt.srcElement;\n\n    fn.call(el, evt);\n\n  }\n\n}"
+                    }
+                ],
+                "fingerprint": "1462241541919",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "<Your accountId>",
+                "containerId": "<Your containerId>",
+                "variableId": "6",
+                "name": "fn.removeEvent",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "// Remove Event Listener Polyfill\nfunction() {\n\n  return function(el, eventName, fn) {\n\n    if (el.removeEventListener) {\n\n      el.removeEventListener(eventName, fn);\n\n    } else if (el.detachEvent) {\n\n      el.detachEvent('on' + eventName, fn);\n\n    } else if (el['on' + eventName] === fn) {\n\n      el['on' + eventName] = null;\n\n    }\n\n  };\n\n}"
+                    }
+                ],
+                "fingerprint": "1462241541919",
+                "parentFolderId": "6"
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "<Your accountId>",
+                "containerId": "<Your containerId>",
+                "folderId": "6",
+                "name": "MorphL Hover Tracking Plugin",
+                "fingerprint": "1462241536634"
+            }
+        ]
+    }
+}
