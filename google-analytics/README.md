@@ -6,13 +6,12 @@
 
 Please see below the steps required for setting up client ID tracking in Google Analytics and creating API credentials for the Google Analytics Reporting API (v4).
 
-## Step 1 - Adding client ID, session ID and hit timestamp as custom dimensions
+## Step 1 - Adding client ID and session ID as custom dimensions
 
 From the Google Analytics admin panel, go to the **Admin** section. In the **Property** section, go to **Custom Definitions > Custom Dimensions**. Add the following dimensions:
 
 - **ClientID** with the **User** scope
 - **SessionID** with the **Session** scope
-- **HitTimestamp** with the **Hit** scope
 
 <div align="center">
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step2-ga-custom-dimensions.jpg" />
@@ -34,16 +33,7 @@ From the **Custom Definitions** section, go to the **Custom Dimensions** section
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-js-session-id.png" />
 </div>
 
-#### c) Hit Timestamp
-
-From the **Custom Definitions** section, go to the **Custom Dimensions** section and click the **+New Custom Dimension** button. Add the name "*dimension3*" and choose the **Hit** scope.
-
-
-<div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-js-timestamp.png" />
-</div>
-
-#### d) Google Analytics Tag
+#### c) Google Analytics Tag
 
 Copy the following script and replace the view id (should be something like *UI-xxxxx-01*) to the one corresponding to your website. It should be placed right before the closing `<body>` tag in the page:
 
@@ -63,7 +53,6 @@ ga('create', 'UA-XXXXXXXX-Y', 'auto'); // replace UA-XXXXXXXX-Y with your view i
 ga(function (tracker) {
   ga('set', 'dimension1', 'GA' + String(tracker.get('clientId')));
   ga('set', 'dimension2', new Date().getTime() + '.' + Math.random().toString(36).substring(5));
-  ga('set', 'dimension3', new Date().getTime());
 });
 ga('send', 'pageview');
 ```
