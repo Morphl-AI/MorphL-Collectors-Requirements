@@ -14,13 +14,12 @@ If you haven't used Google Tag Manager (GTM) before, it's like a container scrip
 
 - Once the GTM account is created, you can add the Google Analytics tag to it and replace the analytics script on the website with the GTM script: [https://support.google.com/analytics/answer/6163791?hl=en](https://support.google.com/analytics/answer/6163791?hl=en). If you use other scripts on the website (for ex. Facebook Pixel), you can load all of those through GTM. Analytics tracking should continue functioning like before.
 
-## Step 2 - Adding client ID, session ID and hit timestamp as custom dimensions
+## Step 2 - Adding client ID and session ID as custom dimensions
 
 From the Google Analytics admin panel, go to the **Admin** section. In the **Property** section, go to **Custom Definitions > Custom Dimensions**. Add the following dimensions:
 
 - **ClientID** with the **User** scope
 - **SessionID** with the **Session** scope
-- **HitTimestamp** with the **Hit** scope
 
 <div align="center">
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step2-ga-custom-dimensions.jpg" />
@@ -29,7 +28,7 @@ From the Google Analytics admin panel, go to the **Admin** section. In the **Pro
 
 ## Step 3 - Setting up tracking 
 
-Go to the GTM admin panel and follow the steps below. The indications below are derived from [this tutorial](https://www.simoahava.com/analytics/improve-data-collection-with-four-custom-dimensions/#3-session-id) where you can find a detailed explanation about the client ID, session ID and hit timestamp.
+Go to the GTM admin panel and follow the steps below. The indications below are derived from [this tutorial](https://www.simoahava.com/analytics/improve-data-collection-with-four-custom-dimensions/#3-session-id) where you can find a detailed explanation about the client ID and session ID.
 
 #### a) Client ID
 
@@ -70,40 +69,7 @@ This will create a random session ID.
     <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-session-id-1.png" />
 </div>
 
-#### c) Hit Timestamp
-
-From the **Variables** section, go to the **User-Defined Variables** section and click the **New** button. Add the name "*Hit Timestamp Local Time With Offset*" and choose the **Custom JavaScript** variable type.
-
-Insert the code below and save it:
-
-```
-function() {
-    // Get local time as ISO string with offset at the end
-    var now = new Date();
-    var tzo = -now.getTimezoneOffset();
-    var dif = tzo >= 0 ? '+' : '-';
-    var pad = function(num) {
-        var norm = Math.abs(Math.floor(num));
-        return (norm < 10 ? '0' : '') + norm;
-    };
-  
-    return now.getFullYear() 
-        + '-' + pad(now.getMonth()+1)
-        + '-' + pad(now.getDate())
-        + 'T' + pad(now.getHours())
-        + ':' + pad(now.getMinutes()) 
-        + ':' + pad(now.getSeconds())
-        + '.' + pad(now.getMilliseconds())
-        + dif + pad(tzo / 60) 
-        + ':' + pad(tzo % 60);
-}
-```
-
-<div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-hit-timestamp.png" />
-</div>
-
-#### d) Google Analytics Custom Variable
+#### c) Google Analytics Custom Variable
 
 From the **Variables** section, go to the **User-Defined Variables** section and click the **New** button. Add the name **GASettings** and choose the **Google Analytics Settings** variable type.
 
@@ -121,7 +87,7 @@ Set the **Google Analytics Settings** to your custom **GASettings** variable and
 
 In the **More Settings > Fields to Set** section, set **cookieDomain** to *auto* and add a **customTask** field with the value of your **Set Client ID in Dimension 1** custom variable.
 
-In the **More Settings > Custom Dimensions** section, set index **2** with your **Random Session ID** custom variable and index **3** with your **Hit Timestamp Local Time With Offset** custom variable.
+In the **More Settings > Custom Dimensions** section, set index **2** with your **Random Session ID** custom variable.
 
 Set the **Trigger** field to "*All Pages*".
 
