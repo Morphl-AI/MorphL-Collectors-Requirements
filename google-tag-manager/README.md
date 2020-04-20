@@ -12,7 +12,7 @@ If you haven't used Google Tag Manager (GTM) before, it's like a container scrip
 
 - First step is to set up GTM, here is a [tutorial](https://support.google.com/tagmanager/answer/6103696?hl=en) on how to do this.
 
-- Once the GTM account is created, you can add the Google Analytics tag to it and replace the analytics script on the website with the GTM script: [https://support.google.com/analytics/answer/6163791?hl=en](https://support.google.com/analytics/answer/6163791?hl=en). If you use other scripts on the website (for ex. Facebook Pixel), you can load all of those through GTM. Analytics tracking should continue functioning like before.
+- Once the GTM account is created, you can add the Google Analytics tag to it and replace the analytics script on the website with the GTM script: [https://support.google.com/tagmanager/answer/6107124?hl=en](https://support.google.com/tagmanager/answer/6107124?hl=en). If you use other scripts on the website (for ex. Facebook Pixel), you can load all of those through GTM. Analytics tracking should continue functioning like before.
 
 ## Step 2 - Adding client ID and session ID as custom dimensions
 
