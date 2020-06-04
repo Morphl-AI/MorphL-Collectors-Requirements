@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/morphl-google-tag-manager.png" style="width:300px; height: auto;" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/morphl-google-tag-manager.png" style="width:300px; height: auto;" />
 </div>
 
 ## Google Tag Manager - Tracking Settings
@@ -22,7 +22,7 @@ From the Google Analytics admin panel, go to the **Admin** section. In the **Pro
 - **SessionID** with the **Session** scope
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step2-ga-custom-dimensions.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step2-ga-custom-dimensions.jpg" />
 </div>
 
 
@@ -47,7 +47,7 @@ function() {
 ```
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-client-id.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step3-client-id.jpg" />
 </div>
 
 
@@ -66,7 +66,7 @@ function() {
 This will create a random session ID.
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-session-id-1.png" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step3-session-id-1.png" />
 </div>
 
 #### c) Google Analytics Custom Variable
@@ -76,7 +76,7 @@ From the **Variables** section, go to the **User-Defined Variables** section and
 Set the **Tracking ID** value as your view ID from Google Analytics (should be something like *UI-xxxxx-01*) and set the **Cookie Domain** to *auto*.
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-settings.png" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step3-ga-settings.png" />
 </div>
 
 #### e) Google Analytics Tag
@@ -92,11 +92,11 @@ In the **More Settings > Custom Dimensions** section, set index **2** with your 
 Set the **Trigger** field to "*All Pages*".
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-ga-tag.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step3-ga-tag.jpg" />
 </div>
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step3-trigger.png" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step3-trigger.png" />
 </div>
 
 ## Step 4 - Creating Google Analytics Reporting API credentials
@@ -108,19 +108,19 @@ The last part includes creating API credentials that can be used to authenticate
 Click the button to the right of the logo. A window will open and you can press the "+" button to create a new project.
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-create-project.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step4-create-project.jpg" />
 </div>
 
 From the **Dashboard** section, click the **+ENABLE APIS AND SERVICES** button. 
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-enable-reporting-api-1.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step4-enable-reporting-api-1.jpg" />
 </div>
 
 Search for *Google Analytics Reporting API* and enable it.
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-enable-reporting-api-2.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step4-enable-reporting-api-2.jpg" />
 </div>
 
 At this point, we have enabled the API, but we also need to create credentials so we can access the data.
@@ -132,7 +132,7 @@ Going back to the main page of the Google Developers console, go to the **Creden
 Check the **Furnish a new private key** checkbox and choose the **JSON** format. After saving the form, a JSON file with the API credentials will be downloaded. 
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-create-service-account.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step4-create-service-account.jpg" />
 </div>
 
 ### c) Allow Access to Google Analytics Data
@@ -142,5 +142,5 @@ Now the Google project and API credentials are created, but we need one more ste
 From Google Analytics, go to the **Admin** section. From the **Account** section, select **User Management**. Use the same email address that was added in the previous step (**Service account ID**). Uncheck **Notify new users by email**, uncheck **Edit** from the **Permissions** section below and save the new user.
 
 <div align="center">
-    <img src="https://storage.googleapis.com/morphl-docs/google-analytics-tracking/step4-ga-add-service-id.jpg" />
+    <img src="https://storage.googleapis.com/morphl-docs-community-edition/google-analytics-tracking/step4-ga-add-service-id.jpg" />
 </div>
